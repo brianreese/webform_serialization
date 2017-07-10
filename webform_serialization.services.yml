@@ -1,0 +1,11 @@
+services:
+  serializer.normalizer.webform.jsonapi:
+    class: Drupal\webform_serialization\Normalizer\WebformNormalizer
+    arguments: ['@jsonapi.link_manager', '@jsonapi.resource_type.repository', '@entity_type.manager']
+    tags:
+      - { name: normalizer, priority: 30 }
+  serializer.normalizer.webform_submission.jsonapi:
+      class: Drupal\webform_serialization\Normalizer\WebformSubmissionNormalizer
+      arguments: ['@jsonapi.link_manager', '@jsonapi.resource_type.repository', '@entity_type.manager']
+      tags:
+        - { name: normalizer, priority: 30 }
